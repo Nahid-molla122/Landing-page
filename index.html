@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+     <!-- Header / Navbar -->
+  <header class="navbar container">
+    <div class="nav-left">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <img src="images/icon-menu.svg" alt="" />
+      </button>
+
+      <img src="images/logo.svg" alt="Sneakers Logo" class="logo" />
+
+      <!-- Desktop nav -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <div class="cart-container">
+        <a href="#" class="cart" id="cart-icon" aria-haspopup="true" aria-controls="cart-dropdown" aria-expanded="false">
+          <img src="images/icon-cart.svg" alt="Cart" />
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <div class="cart-dropdown" id="cart-dropdown" role="menu">
+          <h4>Cart</h4>
+          <hr />
+          <div id="cart-items">
+            <p>Your cart is empty.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="avatar">
+        <img src="images/image-avatar.png" alt="Avatar" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile off-canvas menu -->
+  <aside id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mm-backdrop" data-close></div>
+
+    <nav class="mm-panel" role="dialog" aria-label="Main">
+      <button class="mm-close" id="mm-close" aria-label="Close menu">
+        <img src="images/icon-close.svg" alt="" />
+      </button>
+
+      <ul class="mm-links">
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+     <section class="hero container">
+    <div class="product-slider">
+      <!-- LEFT: gallery -->
+      <div class="gallery">
+        <div class="main-image">
+          <img id="currentImage" src="./images/image-product-1.jpg" alt="Fall Limited Edition Sneakers" />
+          <button class="nav prev" aria-label="Previous image">❮</button>
+          <button class="nav next" aria-label="Next image">❯</button>
+        </div>
+
+        <div class="thumbnails" role="listbox" aria-label="Product thumbnails">
+          <button class="thumb" data-index="0" aria-label="Image 1 selected" aria-selected="true">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+          </button>
+          <button class="thumb" data-index="1" aria-label="Image 2">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="" />
+          </button>
+          <button class="thumb" data-index="2" aria-label="Image 3">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="" />
+          </button>
+          <button class="thumb" data-index="3" aria-label="Image 4">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: product info -->
+      <div class="product-info">
+        <p class="eyebrow">SNEAKER COMPANY</p>
+        <h1 class="title">Fall Limited Edition Sneakers</h1>
+        <p class="desc">
+          These low‑profile sneakers are your perfect casual wear companion. Featuring a durable
+          rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+
+        <div class="price-area">
+          <div class="price-line">
+            <span class="price">$125.00</span>
+            <span class="badge">50%</span>
+          </div>
+          <div class="old-price">$250.00</div>
+        </div>
+
+        <div class="purchase">
+          <div class="qty" aria-label="Quantity selector">
+            <button class="qty-btn minus" aria-label="Decrease quantity">−</button>
+            <input id="qtyInput" type="number" min="1" value="1" inputmode="numeric" />
+            <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="add-to-cart">
+            <svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true">
+              <path d="M20.925 3.641a1 1 0 0 0-.783-.366H5.21L4.89.944A1 1 0 0 0 3.91 0H1a1 1 0 1 0 0 2h2.19l1.91 11.49A2 2 0 0 0 7.06 15h10.88a2 2 0 0 0 1.98-1.692l1.02-6.12a1 1 0 0 0-.02-.547zM7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm9 0a2 2 0 1 0 .001 3.999A2 2 0 0 0 16 18z" />
+            </svg>
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" data-close></div>
+    <div class="lb-dialog" role="dialog" aria-modal="true" aria-label="Product gallery">
+      <button class="lb-close" aria-label="Close" data-close>✕</button>
+
+      <div class="lb-main">
+        <button class="lb-nav lb-prev" aria-label="Previous image">❮</button>
+        <img id="lbImage" src="./images/image-product-1.jpg" alt="" />
+        <button class="lb-nav lb-next" aria-label="Next image">❯</button>
+      </div>
+
+      <div class="lb-thumbs">
+        <button class="lb-thumb" data-index="0" aria-selected="true"><img src="./images/image-product-1-thumbnail.jpg" alt="" /></button>
+        <button class="lb-thumb" data-index="1"><img src="./images/image-product-2-thumbnail.jpg" alt="" /></button>
+        <button class="lb-thumb" data-index="2"><img src="./images/image-product-3-thumbnail.jpg" alt="" /></button>
+        <button class="lb-thumb" data-index="3"><img src="./images/image-product-4-thumbnail.jpg" alt="" /></button>
+      </div>
+    </div>
+  </div>
+    <!-- 
+
+  Collections
+  Men
+  Women
+  About
+  Contact
+
+  Sneaker Company
+
+  Fall Limited Edition Sneakers
+
+  These low-profile sneakers are your perfect casual wear companion. Featuring a 
+  durable rubber outer sole, they’ll withstand everything the weather can offer.
+
+  $125.00
+  50%
+  $250.00
+
+  0
+  Add to cart -->
+
+    <!-- JS -->
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
